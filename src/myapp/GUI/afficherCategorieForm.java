@@ -17,7 +17,6 @@ import com.codename1.ui.URLImage;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
-import myapp.MyApplication;
 import myapp.Entities.Categorie;
 import myapp.Services.ServiceCategories;
 import java.io.IOException;
@@ -40,11 +39,11 @@ public class afficherCategorieForm extends BaseForm {
                    addForm.show();
         });
 
-        List<Categorie> category = new ArrayList();
-        category = ServiceCategories.getInstance().getAllCategories();
+        List<Categorie> categorie = new ArrayList();
+        categorie = ServiceCategories.getInstance().getAllCategories();
 
-        for (int i = 0; i < category.size(); i++) {
-            this.add(listOfCategories(category.get(i)));
+        for (int i = 0; i < categorie.size(); i++) {
+            this.add(listOfCategories(categorie.get(i)));
         }
     }
     
@@ -55,14 +54,14 @@ public class afficherCategorieForm extends BaseForm {
 
         try {
 
-            Label lbNameCategory = new Label();
+            Label lbNomCategorie = new Label();
             Label lbDescription = new Label();
             Label lbId = new Label();
 
-            lbNameCategory.setText(c.getNomCategorie().toLowerCase());
+            lbNomCategorie.setText(c.getNomCategorie().toLowerCase());
             lbDescription.setText(c.getDescription().toLowerCase());
 
-            ctninfo.addAll(lbNameCategory, lbDescription);
+            ctninfo.addAll(lbNomCategorie, lbDescription);
             //img loading
             Image img;
             ImageViewer imgv;
@@ -77,14 +76,18 @@ public class afficherCategorieForm extends BaseForm {
 
                 imgv = new ImageViewer(img);
 
+                imgv.addPointerReleasedListener((evnt) -> {
+                        Form details = new CategoryEditForm(c, this);
+                        details.show();
+                    });
+                
                 ctn.addAll(imgv, ctninfo);
-                Form p1 = new afficherCategorieForm();
-                p1.show();
+                
             } catch (IOException e) {
-                System.out.println(e.getMessage());
+                //System.out.println(e.getMessage());
             }
         } catch (NullPointerException ex) {
-            System.out.println(ex.getMessage());
+            //System.out.println(ex.getMessage());
         }
         return ctn;
     }

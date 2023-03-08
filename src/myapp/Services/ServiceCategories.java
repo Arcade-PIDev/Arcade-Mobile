@@ -41,6 +41,29 @@ public class ServiceCategories {
         return instance;
     }
     
+        public void deleteCategory(int id) {
+        String url = Statics.base_url + "/deleteCategorie/api/" + id;
+        req.setUrl(url);
+        NetworkManager.getInstance().addToQueueAndWait(req);
+
+    }
+    
+    public Boolean updateCategory(Categorie c) {
+        String url = Statics.base_url + "/updateCategorie/api/" + c.getId() + "?nomCategorie=" + c.getNomCategorie() + "&description=" + c.getDescription() + "&image=" + c.getImage();
+        req.setUrl(url);
+
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+
+            public void actionPerformed(NetworkEvent evt) {
+                resultOK = req.getResponseCode() == 200;
+                req.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(req);
+
+        return resultOK;
+    }
+        
     public Boolean ajouterCategorie(Categorie c) {
 
         String url = Statics.base_url + "/ajouterCategorie/api?nomCategorie=" + c.getNomCategorie() + "&description=" + c.getDescription() + "&image=" + c.getImage();
@@ -71,14 +94,14 @@ public class ServiceCategories {
             for (Map<String, Object> obj : list) {
                 Categorie c = new Categorie();
                 int id = (int) Float.parseFloat(obj.get("id").toString());
-                String nameCategory = obj.get("nomCategorie").toString();
+                String nomCategorie = obj.get("nomCategorie").toString();
                 String image = obj.get("image").toString();
-                String Description = obj.get("description").toString();
+                String description = obj.get("description").toString();
 
                 c.setId(id);
-                c.setDescription(Description);
+                c.setDescription(description);
                 c.setImage(image);
-                c.setNomCategorie(nameCategory);
+                c.setNomCategorie(nomCategorie);
                 categoriesList.add(c);
             }
 
