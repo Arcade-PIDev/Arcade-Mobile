@@ -69,7 +69,9 @@ public class BaseForm extends Form {
     protected void addSideMenu() {
         Toolbar tb = getToolbar();
         tb.setSafeArea(false);
-        
+
         tb.addMaterialCommandToSideMenu("Categories", FontImage.MATERIAL_CATEGORY, e -> new afficherCategorieForm().show());
+        tb.addMaterialCommandToSideMenu("Produits", FontImage.MATERIAL_SHOPPING_BAG, e -> new ListProductsForm().show());
+
     }
 }

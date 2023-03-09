@@ -27,7 +27,7 @@ import java.io.OutputStream;
 
 /**
  *
- * @author meriam
+ * @author Amira
  */
 public class AddCategoryForm extends Form {
 
