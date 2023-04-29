@@ -14,6 +14,7 @@ import java.io.IOException;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.io.NetworkEvent;
 import myapp.GUI.AddCategoryForm;
+import myapp.GUI.ListProductsForm;
 import myapp.GUI.afficherCategorieForm;
 
 /**
@@ -50,7 +51,7 @@ public class MyApplication {
     
     public void start() {
         
-        Form current = new afficherCategorieForm();
+        Form current = new ListProductsForm();
         current.show();
     }
 

@@ -72,6 +72,7 @@ public class BaseForm extends Form {
 
         tb.addMaterialCommandToSideMenu("Categories", FontImage.MATERIAL_CATEGORY, e -> new afficherCategorieForm().show());
         tb.addMaterialCommandToSideMenu("Produits", FontImage.MATERIAL_SHOPPING_BAG, e -> new ListProductsForm().show());
+        //tb.addMaterialCommandToSideMenu("Panier", FontImage.MATERIAL_SHOPPING_BAG, e -> new ListCartsForm().show());
 
     }
 }

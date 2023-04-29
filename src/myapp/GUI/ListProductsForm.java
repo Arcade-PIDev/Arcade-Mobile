@@ -29,13 +29,13 @@ public class ListProductsForm extends BaseForm {
 
     public ListProductsForm() {
         super.addSideMenu();
-        setTitle("Products List");
+        setTitle("Liste des Produits");
         setUIID("Activate");
 
         getToolbar().addMaterialCommandToRightBar("", FontImage.MATERIAL_SHOPPING_CART, e -> {
 
-            //Form cartsForm = new ListCartsForm(this);
-            //cartsForm.show();
+            Form cartsForm = new ListCartsForm(this);
+            cartsForm.show();
         });
 
         getToolbar().addMaterialCommandToRightBar("", FontImage.MATERIAL_ADD, e -> {
@@ -50,8 +50,6 @@ public class ListProductsForm extends BaseForm {
         for (int i = 0; i < Produit.size(); i++) {
             this.add(listOfProducts(Produit.get(i)));
         }
-        
-
     }
 
     public Container listOfProducts(Produit c) {

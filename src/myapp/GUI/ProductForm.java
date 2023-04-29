@@ -6,10 +6,7 @@ package myapp.GUI;
 
 import com.codename1.components.ImageViewer;
 import com.codename1.ui.Button;
-import com.codename1.ui.CheckBox;
-import com.codename1.ui.Command;
 import com.codename1.ui.Container;
-import com.codename1.ui.Dialog;
 import com.codename1.ui.Display;
 import com.codename1.ui.EncodedImage;
 import com.codename1.ui.FontImage;
@@ -17,18 +14,18 @@ import com.codename1.ui.Form;
 import com.codename1.ui.Image;
 import com.codename1.ui.Label;
 import com.codename1.ui.TextArea;
-import com.codename1.ui.TextField;
 import com.codename1.ui.URLImage;
-import com.codename1.ui.events.ActionEvent;
-import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
-import myapp.MyApplication;
-//import myapp.Entities.Cart;
 import myapp.Entities.Produit;
-//import myapp.Services.ServiceCart;
 import myapp.Services.ServiceProd;
+import myapp.Services.ServiceCart;
 import myapp.Utils.Statics;
 import java.io.IOException;
+import myapp.Entities.Panier;
+import com.codename1.ui.Command;
+import com.codename1.ui.events.ActionEvent;
+import com.codename1.ui.events.ActionListener;
+import com.codename1.ui.Dialog;
 
 /**
  *
@@ -44,7 +41,6 @@ public class ProductForm extends Form {
         this.getToolbar().setTitle(product.getNomProduit());
         this.setLayout(BoxLayout.y());
         this.setUIID("Activate");
-        //System.out.println("this is the detail category"+category);
 
         this.product = product;
        
@@ -59,7 +55,6 @@ public class ProductForm extends Form {
             });
         
         try {
-            //System.out.println(product);
             EncodedImage spinner = EncodedImage.create("/spinner.png");
             Container imageContainer = new Container(BoxLayout.xCenter());
             Container descriptionContainer = new Container(BoxLayout.xCenter());
@@ -103,27 +98,24 @@ public class ProductForm extends Form {
 
             descriptionContainer.add(descriptionTA);
             imageContainer.add(image);
+            
             Button btnCart = new Button("Add to Cart");
-           /*  btnCart.addActionListener(
+             btnCart.addActionListener(
                 new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                     Cart cart = new Cart();
+                     Panier cart = new Panier();
                          cart.setProduct(product);
                     if (ServiceCart.getInstance().addCart(cart)) {
-                        
+                        Form current = new ListProductsForm();
+                        current.show();
                     } else {
                         Dialog.show("erreur", "connection Failed", new Command("ok"));
-
                     }
-
                 }
-            }
-
-        
-        );*/
-            //this.addAll(imageContainer, descriptionContainer, tfName, tfCatID, tfPrice, tfQuantityStocked,btnCart);
-            this.addAll(imageContainer, descriptionContainer, tfName, tfCatID, tfPrice, tfQuantityStocked);
+            }        
+        );
+            this.addAll(imageContainer, descriptionContainer, tfName, tfCatID, tfPrice, tfQuantityStocked,btnCart);
         } catch (IOException e) {
             System.err.println(e);
         }

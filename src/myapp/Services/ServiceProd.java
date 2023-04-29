@@ -1,8 +1,9 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
-package myapp.services;
+package myapp.Services;
 
 import com.codename1.components.ToastBar;
 import com.codename1.io.CharArrayReader;
@@ -12,36 +13,34 @@ import com.codename1.io.NetworkEvent;
 import com.codename1.io.NetworkManager;
 import com.codename1.ui.FontImage;
 import com.codename1.ui.events.ActionListener;
-import myapp.Entities.Categorie;
-import myapp.Entities.Produit;
-import myapp.Utils.Statics;
 import java.io.IOException;
-import static java.lang.Integer.parseInt;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
+import myapp.Entities.Produit;
+import myapp.Utils.Statics;
 
 /**
  *
  * @author Amira
  */
-public class ServiceProducts {
+public class ServiceProd {
 
     public Boolean resultOK;
 
     public ArrayList<Produit> ProductsList;
-    public static ServiceProducts instance;
+    public static ServiceProd instance;
     private ConnectionRequest req;
     public Produit product;
 
-    private ServiceProducts() {
+    private ServiceProd() {
         req = new ConnectionRequest();
     }
 
-    public static ServiceProducts getInstance() {
+    public static ServiceProd getInstance() {
         if (instance == null) {
-            instance = new ServiceProducts();
+            instance = new ServiceProd();
         }
         return instance;
     }
@@ -59,18 +58,17 @@ public class ServiceProducts {
                 Produit c = new Produit();
                 int id = (int) Float.parseFloat(obj.get("id").toString());
 
-                String categoryItem1 = obj.get("category").toString();
+                String categoryItem1 = obj.get("categorie").toString();
                 StringTokenizer st = new StringTokenizer(categoryItem1, ",");
                 StringTokenizer st2 = new StringTokenizer(st.nextToken(), ":");
                 StringTokenizer st3 = new StringTokenizer(st2.nextToken(), "=");
                 st3.nextToken();
-                //System.out.println(st3.nextToken());
                 int categorie = (int) Float.parseFloat(st3.nextToken());
-                int quantiteStock = parseInt(obj.get("quantiteStock").toString());
+                int quantiteStock = (int) Float.parseFloat(obj.get("quantiteStock").toString());
                 String nomProduit = obj.get("nomProduit").toString();
                 String image = obj.get("image").toString();
                 String description = obj.get("description").toString();
-                int prix = parseInt(obj.get("prix").toString());
+                int prix = (int) Float.parseFloat(obj.get("prix").toString());
 
                 c.setId(id);
                 c.setDescription(description);
@@ -116,8 +114,8 @@ public class ServiceProducts {
 
     public Boolean addProduct(Produit c) {
 
-        String url = Statics.base_url + "/api/createProduct?nameProduct=" + c.getNomProduit() + "&description=" + c.getDescription()
-                + "&image=" + c.getImage() + "&categoryId=" + c.getCategorie() + "&price=" + c.getPrix() + "&quantityStocked=" + c.getQuantiteStock();
+        String url = Statics.base_url + "/api/createProduct?nomProduit=" + c.getNomProduit() + "&description=" + c.getDescription()
+                + "&image=" + c.getImage() + "&categorie=" + c.getCategorie() + "&prix=" + c.getPrix() + "&quantiteStock=" + c.getQuantiteStock();
         req.setUrl(url);
 
         req.addResponseListener(new ActionListener<NetworkEvent>() {
@@ -136,8 +134,8 @@ public class ServiceProducts {
 
     public Boolean EditProduct(Produit c) {
         System.out.println("this :"+c);
-        String url = Statics.base_url + "/api/updateProduct/" + c.getId() + "?nameProduct=" + c.getNomProduit() + "&description=" + c.getDescription()
-                + "&image=" + c.getImage() + "&price=" + c.getPrix() + "&quantityStocked=" + c.getQuantiteStock();
+        String url = Statics.base_url + "/api/updateProduct/" + c.getId() + "?nomProduit=" + c.getNomProduit() + "&description=" + c.getDescription()
+                + "&image=" + c.getImage() + "&prix=" + c.getPrix() + "&quantiteStock=" + c.getQuantiteStock();
         req.setUrl(url);
 
         req.addResponseListener(new ActionListener<NetworkEvent>() {
@@ -154,3 +152,4 @@ public class ServiceProducts {
 
     }
 }
+

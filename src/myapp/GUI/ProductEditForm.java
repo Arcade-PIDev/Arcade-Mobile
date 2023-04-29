@@ -4,20 +4,25 @@
  */
 package myapp.GUI;
 
+import com.codename1.components.ImageViewer;
 import com.codename1.ui.Button;
 import com.codename1.ui.ComboBox;
 import com.codename1.ui.Command;
 import com.codename1.ui.Container;
 import com.codename1.ui.Dialog;
 import com.codename1.ui.Display;
+import com.codename1.ui.EncodedImage;
 import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
+import com.codename1.ui.Image;
 import com.codename1.ui.Label;
 import com.codename1.ui.TextArea;
 import com.codename1.ui.TextField;
+import com.codename1.ui.URLImage;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
+import java.io.IOException;
 import myapp.Entities.Categorie;
 import myapp.Entities.Produit;
 import myapp.Services.ServiceCategories;
@@ -41,16 +46,12 @@ public class ProductEditForm extends Form {
         TextField tfDes = new TextField("", "Product Description");
         TextField tfPrice = new TextField("", "Price");
         TextField tfQuantityStocked = new TextField("", "Quantity in stock");
-
-
       
 
         tfName.setText(product.getNomProduit());
         tfPrice.setText(product.getPrix() + "");
         tfQuantityStocked.setText(product.getQuantiteStock() + "");
         tfDes.setText(product.getDescription());
-
-
 
         Button btnSubmit = new Button("Edit Product");
 
