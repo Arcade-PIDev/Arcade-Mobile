@@ -24,7 +24,9 @@ import myapp.Entities.Categorie;
 import myapp.Services.ServiceCategories;
 import java.io.IOException;
 import java.io.OutputStream;
-
+import com.codename1.ui.plaf.Style;
+import com.codename1.ui.plaf.StyleParser.StyleInfo;
+import java.lang.Object;
 /**
  *
  * @author Amira
@@ -68,8 +70,8 @@ public class AddCategoryForm extends Form {
         photoContainer.add(selectImage);
 
         Button btnSubmit = new Button("Valider");
-
         btnSubmit.addActionListener(
+                
                 new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {

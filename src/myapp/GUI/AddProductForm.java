@@ -25,6 +25,7 @@ import myapp.Services.ServiceProd;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+import com.codename1.ui.plaf.Style;
 
 /**
  *
@@ -39,17 +40,17 @@ public class AddProductForm extends Form {
         setTitle("Add Product");
         setLayout(BoxLayout.y());
         this.setUIID("Activate");
-        TextField tfName = new TextField("", "Product Name");
-        TextField tfDes = new TextField("", "Product Description");
+        TextField tfName = new TextField("", "Nom Produit");
+        TextField tfDes = new TextField("", "Description");
         //TextField tfCatID = new TextField("", "Category ID");
-        TextField tfPrice = new TextField("", "Price");
-        TextField tfQuantityStocked = new TextField("", "Quantity in stock");
+        TextField tfPrice = new TextField("", "Prix");
+        TextField tfQuantityStocked = new TextField("", "Quantité stock");
 //combo 
 
         List<Categorie> category = new ArrayList();
         category = ServiceCategories.getInstance().getAllCategories();
 
-        Label CategoryLabel = new Label("Category");
+        Label CategoryLabel = new Label("Categorie");
 
         ComboBox categoryBox = new ComboBox();
        
@@ -86,7 +87,9 @@ public class AddProductForm extends Form {
         photoContainer.add(selectImage);
 
         Button btnSubmit = new Button("Submit");
-
+        
+        btnSubmit.getStyle().setFgColor(0xFFFFFF);
+        
         btnSubmit.addActionListener(
                 new ActionListener() {
             @Override

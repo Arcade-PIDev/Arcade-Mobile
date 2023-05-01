@@ -42,10 +42,10 @@ public class ProductEditForm extends Form {
         setTitle("Edit Product");
         setLayout(BoxLayout.y());
         this.setUIID("Activate");
-        TextField tfName = new TextField("", "Product Name");
-        TextField tfDes = new TextField("", "Product Description");
-        TextField tfPrice = new TextField("", "Price");
-        TextField tfQuantityStocked = new TextField("", "Quantity in stock");
+        TextField tfName = new TextField("", "Nom Produit");
+        TextField tfDes = new TextField("", "Description");
+        TextField tfPrice = new TextField("", "Prix");
+        TextField tfQuantityStocked = new TextField("", "Quantité stock");
       
 
         tfName.setText(product.getNomProduit());

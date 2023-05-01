@@ -1,22 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <resource majorVersion="1" minorVersion="11" useXmlUI="false">
-    <image name="activation-background.jpg"  />
-    <image name="confirmation-background.jpg"  />
-    <image name="dog.jpg"  />
-    <image name="heart-off.png"  />
-    <image name="heart-on.png"  />
-    <image name="news-item-1.jpg"  />
-    <image name="news-item-2.jpg"  />
-    <image name="news-item-3.jpg"  />
-    <image name="news-item-4.jpg"  />
-    <image name="news-item.jpg"  />
-    <image name="profile-background.jpg"  />
-    <image name="signin-background.jpg"  />
-    <image name="signup-background.jpg"  />
+    <image name="activation-background.jpg"/>
+	
     <theme name="Theme">
         <val key="@includeNativeBool" value="true" />
     </theme>
-    <image name="timeline-background.jpg"  />
-    <image name="welcome-background.jpg"  />
 </resource>
