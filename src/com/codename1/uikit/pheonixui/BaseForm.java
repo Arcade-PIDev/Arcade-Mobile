@@ -90,12 +90,10 @@ public class BaseForm extends Form {
        // getToolbar().addCommandToSideMenu("Nos Points de location", calendarImage, e -> new GoogleMapsTestApp().start());
      //   getToolbar().addCommandToSideMenu("Mes Annonces", calendarImage, e -> new AnnoncesM(res).show());
     //    getToolbar().addCommandToSideMenu("Mes Réservations", calendarImage, e -> new MesResUI(res).show());
-getToolbar().addCommandToSideMenu("les places ", calendarImage, e -> new NewsfeedForm(res).show());
-getToolbar().addCommandToSideMenu("Statistique ", calendarImage, e -> new Statistique(res).show());
-getToolbar().addCommandToSideMenu("evenements ", calendarImage, e -> new NewsfeedFormPart(res).show());
-getToolbar().addCommandToSideMenu("Experience ", calendarImage, e -> new NewsfeedFormexper(res).show());
+
 getToolbar().addCommandToSideMenu("USERS ", calendarImage, e -> new NewsfeedFormuser(res).show());
-getToolbar().addCommandToSideMenu("formulaire ", calendarImage, e -> new NewsfeedFormformulaire(res).show());
+
+
 
         
         //getToolbar().addCommandToSideMenu("Settings", null, e -> {});

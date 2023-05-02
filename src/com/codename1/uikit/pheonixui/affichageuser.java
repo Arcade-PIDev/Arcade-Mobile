@@ -16,8 +16,8 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE 
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
  */
-
 package com.codename1.uikit.pheonixui;
+
 import com.codename1.charts.ChartComponent;
 import com.codename1.charts.models.CategorySeries;
 import com.codename1.charts.renderers.DefaultRenderer;
@@ -39,11 +39,10 @@ import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.util.Resources;
 import com.codename1.uikit.entities.User;
-import com.codename1.uikit.entities.offre;
-import com.codename1.uikit.entities.participation;
-import com.codename1.uikit.services.Service;
+
+
 import com.codename1.uikit.services.ServiceUser;
-import com.codename1.uikit.services.servicepart;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -52,100 +51,82 @@ import java.util.ArrayList;
  *
  * @author Shai Almog
  */
-public class affichageuser extends  BaseForm {
-EncodedImage enim;
- Image img;
- ImageViewer imv;
-private static final String HTML_API_KEY = "AIzaSyC_i6nNp6sOrxr_VmksWPmibQn5aIHMqoo";
- 
+public class affichageuser extends BaseForm {
 
+    EncodedImage enim;
+    Image img;
+    ImageViewer imv;
+    private static final String HTML_API_KEY = "AIzaSyC_i6nNp6sOrxr_VmksWPmibQn5aIHMqoo";
 
-    public affichageuser(Resources res,User evt) {
-      
-      super("user", BoxLayout.y());
-        Container c1=new Container();
-     installSidemenu(res);
+    public affichageuser(Resources res, User evt) {
+
+        super("user", BoxLayout.y());
+        Container c1 = new Container();
+        installSidemenu(res);
         getToolbar().addMaterialCommandToRightBar("", FontImage.MATERIAL_ARROW_LEFT, new ActionListener() {
-                   @Override
-                   public void actionPerformed(ActionEvent evt) {
-                      new NewsfeedForm(res).showBack();
-                   }
-               });
-        
-        
-         try {
-            enim=EncodedImage.create("/giphy.gif");
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                new NewsfeedFormuser(res).showBack();
+            }
+        });
+
+        try {
+            enim = EncodedImage.create("/giphy.gif");
         } catch (IOException ex) {
             //Logger.getLogger(MyApplication.class.getName()).log(Level.SEVERE, null, ex);
         }
-         Label ll=new Label();
-        Label fullname=new Label("fullnamet: "+evt.getFullname());
-        Label email=new Label("email : "+evt.getEmail());
-        Label username=new Label("username : "+evt.getUsername());
-        Label password=new Label("password : "+evt.getPassword());
-    
-         Label birth=new Label("birth : "+evt.getBirth());
-          Label country =new Label("country : "+evt.getCountry());
-          Label adress =new Label("adress : "+evt.getAdress());
-       
-       
+        Label ll = new Label();
+        Label Username = new Label("Username: " + evt.getUsername());
         
-        Button update=new Button("Update");
-        Button Delete=new Button("Delete");
+        Label email = new Label("email : " + evt.getEmail());
+        Label avatar = new Label("avatar : " + evt.getAvatar());
+        Label password = new Label("password : " + evt.getPassword());
+
+
+        Button update = new Button("Update");
+        Button Delete = new Button("Delete");
         Delete.addActionListener(new ActionListener() {
-          @Override
-          public void actionPerformed(ActionEvent evvt) {
-              ServiceUser.getInstance().Delete(evt);
-              new NewsfeedForm(res).show();
-          }
-      });
-        
-        
-        
+            @Override
+            public void actionPerformed(ActionEvent evvt) {
+                ServiceUser.getInstance().Delete(evt);
+                new NewsfeedFormuser(res).show();
+            }
+        });
+
         update.addActionListener(new ActionListener() {
-          @Override
-          public void actionPerformed(ActionEvent evvt) {
-               //new updatePart(res,evt).show();
-          }
-      });
-        
-        
-        
-         
+            @Override
+            public void actionPerformed(ActionEvent evvt) {
+                new updateuser(res, evt).show();
+            }
+        });
+           try {
+              enim=EncodedImage.create("/giphy.gif");
+           
+              if(evt.getAvatar().contains(".png")){
+               img=URLImage.createToStorage(enim,"http://127.0.0.1:8000/image/"+evt.getAvatar(), "http://127.0.0.1:8000/image/"+evt.getAvatar(),URLImage.RESIZE_SCALE).scaled(500,350);
+   
+              }else{
+            img=URLImage.createToStorage(enim,"http://127.0.0.1:8000/image/"+evt.getAvatar(), "http://127.0.0.1:8000/image/"+evt.getAvatar(),URLImage.RESIZE_SCALE).scaled(500,350);
+              } 
+
 //double[] val=new double[]{};
-             // System.out.println(evt.getImage());
-            
-              add(fullname);
-              add(email);
-          
-              add(username);
-              add(password);
-              add(birth);
-              add(country);
-              add(adress);
-         
-              add(update);
-              add(Delete);
-              
-            //  add(nbrmax);
-              
+        // System.out.println(evt.getImage());
+        add(Username);
+        add(email);
+        add(avatar);
+        add(img);
+        add(password);
         
-        
-        
-        
-        
-        
-        
-        
-       LocalNotification n = new LocalNotification();
-        n.setId("Baskel");
-        n.setAlertBody("c'est le temps de voir les evenements");
-        n.setAlertTitle("Break Time!");
-        n.setAlertSound("/notification_sound_bells.mp3"); //file name must begin with notification_sound
+      
 
-
-        Display.getInstance().scheduleLocalNotification(n,System.currentTimeMillis() ,LocalNotification.REPEAT_MINUTE);
-        Display.getInstance().showNotify();
+        add(update);
+        add(Delete);
+   
+          } catch (IOException ex) {
+              
+          }
+        //  add(nbrmax);
+ 
         /*
         ArrayList<Ville> pos;
         pos=Service.getInstance().getpos(evt);
@@ -174,10 +155,8 @@ private static final String HTML_API_KEY = "AIzaSyC_i6nNp6sOrxr_VmksWPmibQn5aIHM
         back.addActionListener(e -> new NewsfeedForm(res).show());
         comt.addActionListener(e -> new affichage_cmt(res,evt).show());
         add(comt);
-        */
-     
+         */
+
     }
-    
-    
-    
+
 }

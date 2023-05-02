@@ -8,40 +8,34 @@ package com.codename1.uikit.entities;
 import java.util.Date;
 import java.util.Objects;
 
+
 /**
  *
  * @author bhk
  */
 public class User {
     private int id;
-    private String fullname,email,username,password,country,adress;
-    private Date birth;
+     private String Username,email,password,avatar;
 
-    public User(int id, String fullname, String email, String username, String password, String country, String adress, Date birth) {
+    public User(int id,  String Username, String email, String password, String avatar) {
         this.id = id;
-        this.fullname = fullname;
+       
+        this.Username = Username;
         this.email = email;
-        this.username = username;
         this.password = password;
-        this.country = country;
-        this.adress = adress;
-        this.birth = birth;
+        this.avatar = avatar;
+    }
+
+    public User( String Username, String email, String password, String avatar) {
+      
+        this.Username = Username;
+        this.email = email;
+        this.password = password;
+        this.avatar = avatar;
     }
 
     public User() {
     }
-
-    public User(String fullname, String email, String username, String password, String country, String adress, Date birth) {
-        this.fullname = fullname;
-        this.email = email;
-        this.username = username;
-        this.password = password;
-        this.country = country;
-        this.adress = adress;
-        this.birth = birth;
-    }
-
-    
 
     public int getId() {
         return id;
@@ -51,12 +45,14 @@ public class User {
         this.id = id;
     }
 
-    public String getFullname() {
-        return fullname;
+
+
+    public String getUsername() {
+        return Username;
     }
 
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
+    public void setUsername(String Username) {
+        this.Username = Username;
     }
 
     public String getEmail() {
@@ -67,14 +63,6 @@ public class User {
         this.email = email;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -83,46 +71,23 @@ public class User {
         this.password = password;
     }
 
-    public String getCountry() {
-        return country;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getAdress() {
-        return adress;
-    }
-
-    public void setAdress(String adress) {
-        this.adress = adress;
-    }
-
-    public Date getBirth() {
-        return birth;
-    }
-
-    public void setBirth(Date birth) {
-        this.birth = birth;
-    }
-
-    @Override
-    public String toString() {
-        return "user{" + "id=" + id + ", fullname=" + fullname + ", email=" + email + ", username=" + username + ", password=" + password + ", country=" + country + ", adress=" + adress + ", birth=" + birth + '}';
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 97 * hash + this.id;
-        hash = 97 * hash + Objects.hashCode(this.fullname);
+   
+        hash = 97 * hash + Objects.hashCode(this.Username);
         hash = 97 * hash + Objects.hashCode(this.email);
-        hash = 97 * hash + Objects.hashCode(this.username);
         hash = 97 * hash + Objects.hashCode(this.password);
-        hash = 97 * hash + Objects.hashCode(this.country);
-        hash = 97 * hash + Objects.hashCode(this.adress);
-        hash = 97 * hash + Objects.hashCode(this.birth);
+        hash = 97 * hash + Objects.hashCode(this.avatar);
         return hash;
     }
 
@@ -141,29 +106,32 @@ public class User {
         if (this.id != other.id) {
             return false;
         }
-        if (!Objects.equals(this.fullname, other.fullname)) {
+      
+        if (!Objects.equals(this.Username, other.Username)) {
             return false;
         }
         if (!Objects.equals(this.email, other.email)) {
             return false;
         }
-        if (!Objects.equals(this.username, other.username)) {
-            return false;
-        }
         if (!Objects.equals(this.password, other.password)) {
             return false;
         }
-        if (!Objects.equals(this.country, other.country)) {
-            return false;
-        }
-        if (!Objects.equals(this.adress, other.adress)) {
-            return false;
-        }
-        if (!Objects.equals(this.birth, other.birth)) {
+        if (!Objects.equals(this.avatar, other.avatar)) {
             return false;
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "User{" + "id=" + id + ", Username=" + Username + ", email=" + email + ", password=" + password + ", avatar=" + avatar + '}';
+    }
+
+    
+    
+
+
+   
 
    
     

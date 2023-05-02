@@ -45,10 +45,10 @@ import com.codename1.ui.layouts.FlowLayout;
 import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.plaf.Style;
 import com.codename1.ui.util.Resources;
-import com.codename1.uikit.entities.Experience;
+
 import com.codename1.uikit.entities.User;
-import com.codename1.uikit.entities.offre;
-import com.codename1.uikit.entities.participation;
+
+
 import com.codename1.uikit.services.*;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -62,7 +62,7 @@ public class NewsfeedFormuser extends BaseForm {
 EncodedImage enim;
  Image img;
  ImageViewer imv;
-Resources r;
+ Resources r;
  
 ArrayList<User> evts;
 
@@ -79,27 +79,16 @@ ArrayList<User> evts;
        getToolbar().addMaterialCommandToRightBar("", FontImage.MATERIAL_ADD, new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent evt) {
-              new Ajoutexperience(r).show();
+             
           }
       });
-        TextField rech=new TextField();
-        rech.setHint("Nom");
-        Button re=new Button();
-        re.setText("Chercher");
-        re.addActionListener(new ActionListener() {
-          @Override
-          public void actionPerformed(ActionEvent evt) {
-             new NewsfeedFormuser1(r, ServiceUser.getInstance().affichageUsersparemail(rech.getText())).show();
-          }
-      });
-        add(rech);
-        add(re);
+  
         Tabs swipe = new Tabs();
 
         Label spacer1 = new Label();
         Label spacer2 = new Label();
     try {
-        addTab(swipe, Image.createImage("/logo.jpg"), spacer1, "", "", "");
+        addTab(swipe, Image.createImage("/logo.png"), spacer1, "", "", "");
     } catch (IOException ex) {
        
     }
@@ -158,7 +147,7 @@ ArrayList<User> evts;
             //imv=new ImageViewer(img);  
             //  add(imv);
              // Form hi = new Form("Flow Layout", new FlowLayout());
-            addButton(img, evt.getFullname(), true,26, 32,res,evt);
+            addButton(img, evt.getUsername(), true,26, 32,res,evt);
             
           } catch (IOException ex) {
               

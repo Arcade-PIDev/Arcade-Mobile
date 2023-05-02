@@ -30,7 +30,7 @@ import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.layouts.FlowLayout;
 import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
-import com.codename1.uikit.entities.offre;
+
 import com.codename1.uikit.services.ServiceUser;
 
 
@@ -41,7 +41,7 @@ import com.codename1.uikit.services.ServiceUser;
  */
 public class SignInForm extends BaseForm {
     ServiceUser su = new ServiceUser();
-    offre evt = new offre(); 
+
      private Resources theme,thm;
     public SignInForm(Resources res) {
         
@@ -82,7 +82,7 @@ public class SignInForm extends BaseForm {
         
         signIn.addActionListener(e->{
        if(su.signin(email, password))
-       new NewsfeedForm(UIManager.initFirstTheme("/theme")).show();
+       new NewsfeedFormuser(UIManager.initFirstTheme("/theme")).show();
                
                });
        

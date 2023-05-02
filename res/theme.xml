@@ -73,8 +73,8 @@
             <entry key="Calendar.Thursday" value="Thu" />
             <entry key="ok" value="OK" />
             <entry key="Calendar.Saturday" value="Sat" />
-            <entry key="select" value="Select" />
             <entry key="Calendar.Friday" value="Fri" />
+            <entry key="select" value="Select" />
             <entry key="edit" value="Edit" />
             <entry key="Calendar.Monday" value="Mon" />
             <entry key="cancel" value="Cancel" />
@@ -94,7 +94,7 @@
     <theme name="Theme">
         <val key="@ComponentGroupBool" value="true" />
         <val key="@includeNativeBool" value="true" />
-        <val key="AnnoncesDetail.bgImage" value="278899511_465594935320511_1072329974444728144_n.png" />
+        <val key="AnnoncesDetail.bgImage" value="calendar-background.jpg" />
         <val key="AnnoncesDetail.bgType" value="33" />
         <val key="AnnoncesDetail.margin" value="0.0,0.0,0.0,0.0" />
         <val key="AnnoncesDetail.padUnit" value="2,2,2,2" />
@@ -462,7 +462,7 @@
         <val key="SideCommandSmall.padUnit" value="0,0,2,0" />
         <val key="SideCommandSmall.padding" value="0.0,4.0,0.0,0.0" />
         <val key="SideCommandSmall.textDecoration" value="0" />
-        <val key="SideNavigationPanel.bgImage" value="278899511_465594935320511_1072329974444728144_n.png" />
+        <val key="SideNavigationPanel.bgImage" value="calendar-background.jpg" />
         <val key="SideNavigationPanel.bgType" value="33" />
         <val key="SideNavigationPanel.padUnit" value="2,2,0,0" />
         <val key="SideNavigationPanel.padding" value="16.0,0.0,5.0,0.0" />
@@ -543,7 +543,7 @@
         <val key="SmallWhileLabel.padUnit" value="2,2,2,2" />
         <val key="SmallWhileLabel.padding" value="1.0,1.0,0.0,1.0" />
         <val key="SmallWhileLabel.transparency" value="0" />
-        <val key="Splash.bgImage" value="278899511_465594935320511_1072329974444728144_n.png" />
+        <val key="Splash.bgImage" value="calendar-background.jpg" />
         <val key="Splash.bgType" value="33" />
         <val key="StatsForm.bgColor" value="323c46" />
         <gradient key="StatsForm.bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
@@ -587,7 +587,7 @@
         <gradient key="Toolbar.bgGradient" color1="3136184" color2="13421772" posX="0.5" posY="0.5" radius="1.0" />
         <val key="Toolbar.bgType" value="7" />
         <border key="Toolbar.border" type="empty" />
-        <val key="Welcome.bgImage" value="278899511_465594935320511_1072329974444728144_n.png" />
+        <val key="Welcome.bgImage" value="calendar-background.jpg" />
         <val key="Welcome.bgType" value="33" />
         <val key="Welcome.margin" value="0.0,0.0,0.0,0.0" />
         <val key="Welcome.padUnit" value="2,2,2,2" />

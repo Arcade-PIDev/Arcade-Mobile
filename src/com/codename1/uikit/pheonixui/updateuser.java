@@ -19,55 +19,59 @@
 package com.codename1.uikit.pheonixui;
 
 import com.codename1.capture.Capture;
-import com.codename1.components.FloatingHint;
+import com.codename1.components.ImageViewer;
 import com.codename1.io.File;
 import com.codename1.ui.Button;
-import com.codename1.ui.Container;
 import com.codename1.ui.Display;
-import com.codename1.ui.Form;
+import com.codename1.ui.EncodedImage;
+import com.codename1.ui.FontImage;
 import com.codename1.ui.Image;
-import com.codename1.ui.Label;
 import com.codename1.ui.TextField;
-import com.codename1.ui.Toolbar;
 import com.codename1.ui.events.ActionEvent;
-import com.codename1.ui.layouts.BorderLayout;
+import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
-import com.codename1.ui.layouts.FlowLayout;
-import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.spinner.Picker;
 import com.codename1.ui.util.Resources;
 import com.codename1.uikit.entities.User;
+
+
+
 import com.codename1.uikit.services.ServiceUser;
+
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
 /**
- * Signup UI
+ * The newsfeed form
  *
  * @author Shai Almog
  */
-public class SignUpForm extends BaseForm {
+public class updateuser extends BaseForm {
 
-    ServiceUser su = new ServiceUser();
-    Resources theme;
+    EncodedImage enim;
+    Image img;
+    ImageViewer imv;
     String pp = "";
 
-    public SignUpForm(Resources res) {
-        super(new BorderLayout());
+    Resources r;
 
-        Toolbar tb = new Toolbar(true);
-        setToolbar(tb);
-        tb.setUIID("Container");
-        getTitleArea().setUIID("Container");
-        Form previous = Display.getInstance().getCurrent();
-        tb.setBackCommand("", e -> previous.showBack());
-        setUIID("SignIn");
-        Button btCapture = new Button("Insert ur image");
+    public updateuser(Resources res, User t) {
+
+        super("User", BoxLayout.y());
+        installSidemenu(res);
+        getToolbar().addMaterialCommandToRightBar("", FontImage.MATERIAL_ARROW_LEFT, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent evvt) {
+                new NewsfeedFormuser(res).showBack();
+            }
+        });
+
+        r = res;
+
+        Button btCapture = new Button("update ur image");
         btCapture.addActionListener((ActionEvent e) -> {
             String path = Capture.capturePhoto(50, -1);
             pp = path;
@@ -90,49 +94,49 @@ public class SignUpForm extends BaseForm {
             }
         });
 
-        TextField Username = new TextField("", "Username", 20, TextField.ANY);
+         TextField Username = new TextField("", "Username", 20, TextField.ANY);
         TextField email = new TextField("", "email", 20, TextField.EMAILADDR);
         TextField password = new TextField("", "password", 20, TextField.PASSWORD);
 
-        //   birth.setType(Display.PICKER_TYPE_DATE);
-        Username.setSingleLineTextArea(false);
-
-        password.setSingleLineTextArea(false);
-
-        email.setSingleLineTextArea(false);
-
-        Button next = new Button("Next");
-        Button signIn = new Button("Sign In");
-        signIn.addActionListener(e -> previous.showBack());
-        signIn.setUIID("Link");
-        Label alreadHaveAnAccount = new Label("Already have an account?");
-
-        Container content = BoxLayout.encloseY(
-                new Label("Sign Up", "LogoLabel"),
-                new FloatingHint(Username),
-                createLineSeparator(),
-                new FloatingHint(email),
-                createLineSeparator(),
-                btCapture,
-                createLineSeparator(),
-                new FloatingHint(password),
-                createLineSeparator()
-        );
-        content.setScrollableY(true);
-
-        add(BorderLayout.CENTER, content);
-        add(BorderLayout.SOUTH, BoxLayout.encloseY(
-                next,
-                FlowLayout.encloseCenter(alreadHaveAnAccount, signIn)
-        ));
-        next.requestFocus();
-        next.addActionListener((ActionEvent e) -> {
-            User u = new User(Username.getText(), email.getText(), password.getText(), pp);
-            su.AjouterUser(u);
-            theme = UIManager.initFirstTheme("/theme5");
-            new SignInForm(theme).show();
-
+        Username.setText(t.getUsername());
+        email.setText(t.getEmail());
+       
+        password.setText(t.getPassword());
+       
+        
+        pp = t.getAvatar(); 
+        Button valide = new Button("Valide");
+        valide.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent et) {
+                t.setUsername(Username.getText());
+                t.setEmail(email.getText());
+                t.setPassword(password.getText());
+                
+               
+                t.setAvatar(pp);
+                
+                Username.setText(String.valueOf(t.getUsername()));
+             
+                email.setSingleLineTextArea(false);
+                password.setSingleLineTextArea(false);
+             
+                ServiceUser.getInstance().modifierUser(t) ; 
+                new NewsfeedFormuser(r).showBack();
+            }
         });
-    }
+        add(Username);
+        add(email);
+        add(btCapture) ; 
+        add(password);
 
+        
+        add(valide);
+
+        Button back = new Button("Back");
+
+        back.requestFocus();
+        back.addActionListener(e -> new NewsfeedFormuser(res).show());
+
+    }
 }
