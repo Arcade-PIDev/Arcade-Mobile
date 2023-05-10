@@ -13,9 +13,10 @@ import com.codename1.ui.Toolbar;
 import java.io.IOException;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.io.NetworkEvent;
+import myapp.Entities.User;
 import myapp.GUI.AddCategoryForm;
 import myapp.GUI.ListProductsForm;
-import myapp.GUI.affichageSeance;
+import myapp.GUI.SignInForm;
 import myapp.GUI.afficherCategorieForm;
 
 /**
@@ -26,6 +27,7 @@ public class MyApplication {
 
     private Form current;
     private Resources theme;
+    public static User loggedUser;
 
     public void init(Object context) {
         // use two network threads instead of one
@@ -51,8 +53,8 @@ public class MyApplication {
     }
     
     public void start() {
-        
-        Form current = new affichageSeance();
+        loggedUser = new User();
+        Form current = new SignInForm();
         current.show();
     }
 

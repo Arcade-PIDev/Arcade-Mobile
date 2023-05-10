@@ -4,13 +4,29 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Amira/Desktop/Arcade-Mobile-gestionMagasin/src/myapp/GUI/ProductEditForm.java</file>
-            <file>file:/C:/Users/Amira/Desktop/Arcade-Mobile-gestionMagasin/src/myapp/Utils/Statics.java</file>
-            <file>file:/C:/Users/Amira/Desktop/Arcade-Mobile-gestionMagasin/src/myapp/Entities/Commande.java</file>
-            <file>file:/C:/Users/Amira/Desktop/Arcade-Mobile-gestionMagasin/src/myapp/Services/ServiceJeux.java</file>
-            <file>file:/C:/Users/Amira/Desktop/Arcade-Mobile-gestionMagasin/src/myapp/Entities/Jeux.java</file>
-            <file>file:/C:/Users/Amira/Desktop/Arcade-Mobile-gestionMagasin/src/myapp/Services/ServiceCommande.java</file>
-            <file>file:/C:/Users/Amira/Desktop/Arcade-Mobile-gestionMagasin/src/myapp/GUI/CategoryEditForm.java</file>
+            <file>file:/C:/Users/Amira/Desktop/integration%20Mobile/src/myapp/GUI/affichageSeance.java</file>
+            <file>file:/C:/Users/Amira/Desktop/integration%20Mobile/src/myapp/GUI/afficherEvenementForm.java</file>
+            <file>file:/C:/Users/Amira/Desktop/integration%20Mobile/src/myapp/GUI/SignUpForm.java</file>
+            <file>file:/C:/Users/Amira/Desktop/integration%20Mobile/src/myapp/Services/ServiceUser.java</file>
+            <file>file:/C:/Users/Amira/Desktop/integration%20Mobile/src/myapp/GUI/updatejeux.java</file>
+            <file>file:/C:/Users/Amira/Desktop/integration%20Mobile/src/myapp/GUI/updateuser.java</file>
+            <file>file:/C:/Users/Amira/Desktop/integration%20Mobile/src/myapp/Services/ServiceSeanceCoaching.java</file>
+            <file>file:/C:/Users/Amira/Desktop/integration%20Mobile/src/myapp/GUI/updateabon.java</file>
+            <file>file:/C:/Users/Amira/Desktop/integration%20Mobile/src/myapp/GUI/affichage.java</file>
+            <file>file:/C:/Users/Amira/Desktop/integration%20Mobile/src/myapp/GUI/BaseForm.java</file>
+            <file>file:/C:/Users/Amira/Desktop/integration%20Mobile/src/myapp/GUI/CategoryEditForm.java</file>
+            <file>file:/C:/Users/Amira/Desktop/integration%20Mobile/src/myapp/Entities/User.java</file>
+            <file>file:/C:/Users/Amira/Desktop/integration%20Mobile/src/myapp/GUI/SignInForm.java</file>
+            <file>file:/C:/Users/Amira/Desktop/integration%20Mobile/src/myapp/GUI/AddCategoryForm.java</file>
+            <file>file:/C:/Users/Amira/Desktop/integration%20Mobile/src/myapp/GUI/ListProductsForm.java</file>
+            <file>file:/C:/Users/Amira/Desktop/integration%20Mobile/src/myapp/GUI/affichageuser.java</file>
+            <file>file:/C:/Users/Amira/Desktop/integration%20Mobile/src/myapp/GUI/Ajoutjeux.java</file>
+            <file>file:/C:/Users/Amira/Desktop/integration%20Mobile/src/myapp/GUI/afficherCategorieForm.java</file>
+            <file>file:/C:/Users/Amira/Desktop/integration%20Mobile/src/myapp/MyApplication.java</file>
+            <file>file:/C:/Users/Amira/Desktop/integration%20Mobile/src/myapp/GUI/AjoutSeance.java</file>
+            <file>file:/C:/Users/Amira/Desktop/integration%20Mobile/src/myapp/Services/ServiceEvenement.java</file>
+            <file>file:/C:/Users/Amira/Desktop/integration%20Mobile/src/myapp/GUI/EvenementEditForm.java</file>
+            <file>file:/C:/Users/Amira/Desktop/integration%20Mobile/src/myapp/GUI/AddEvenementForm.java</file>
         </group>
     </open-files>
 </project-private>

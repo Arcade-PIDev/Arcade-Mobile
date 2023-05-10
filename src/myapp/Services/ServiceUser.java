@@ -51,7 +51,7 @@ public class ServiceUser {
     }
 
     public void AjouterUser(User user) {
-        String url = Statics.base_url + "jsonuser/inscriptionMobile?Username=" + user.getUsername()+ "&email=" + user.getEmail()+ "&password=" + user.getPassword()+ "&avatar=" + user.getAvatar();
+        String url = Statics.base_url + "/jsonuser/inscriptionMobile?Username=" + user.getUsername()+ "&email=" + user.getEmail()+ "&password=" + user.getPassword()+ "&avatar=" + user.getAvatar();
         req.setUrl(url);
         req.addResponseListener(a -> {
             String str = new String(req.getResponseData());
@@ -63,7 +63,7 @@ public class ServiceUser {
     public ArrayList<User> affichageUsers() {
         ArrayList<User> result = new ArrayList<>();
 
-        String url = Statics.base_url + "jsonuser/user/liste";
+        String url = Statics.base_url + "/jsonuser/user/liste";
         req.setUrl(url);
 
         req.addResponseListener(new ActionListener<NetworkEvent>() {
@@ -119,7 +119,7 @@ public class ServiceUser {
     }
 
     public boolean Delete(User t) {
-        String url = Statics.base_url + "jsonuser/user/supprimer/" + t.getId();
+        String url = Statics.base_url + "/jsonuser/user/supprimer/" + t.getId();
         req.setUrl(url);
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
@@ -134,7 +134,7 @@ public class ServiceUser {
 
     //Delete 
     public boolean deleteUser(int id) {
-        String url = Statics.base_url + "jsonuser/user/supprimer/" + id;
+        String url = Statics.base_url + "/jsonuser/user/supprimer/" + id;
 
         req.setUrl(url);
 
@@ -152,7 +152,7 @@ public class ServiceUser {
 
     //Update 
     public boolean modifierUser(User user) {
-        String url = Statics.base_url + "jsonuser/user/modif/" + user.getId() + "?Username=" + user.getUsername()+ "&email=" + user.getEmail()+ "&password=" + user.getPassword()+ "&avatar=" + user.getAvatar();
+        String url = Statics.base_url + "/jsonuser/user/modif/" + user.getId() + "?Username=" + user.getUsername()+ "&email=" + user.getEmail()+ "&password=" + user.getPassword()+ "&avatar=" + user.getAvatar();
         req.setUrl(url);
 
         req.addResponseListener(new ActionListener<NetworkEvent>() {
@@ -170,7 +170,7 @@ public class ServiceUser {
 
     public boolean signin(TextField email, TextField password) {
 
-        String url = Statics.base_url + "jsonuser/loginMobile?email=" + email.getText().toString() + "&password=" + password.getText().toString();
+        String url = Statics.base_url + "/jsonuser/loginMobile?email=" + email.getText().toString() + "&password=" + password.getText().toString();
         req = new ConnectionRequest(url, false); //false ya3ni url mazlt matba3thtich lel server
         req.setUrl(url);
 

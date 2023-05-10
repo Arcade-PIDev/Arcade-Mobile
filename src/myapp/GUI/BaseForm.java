@@ -36,6 +36,7 @@ import com.codename1.ui.layouts.Layout;
 import com.codename1.ui.plaf.Style;
 import myapp.MyApplication;
 import com.codename1.ui.util.Resources;
+import myapp.Entities.User;
 
 /**
  * Base class for the forms with common functionality
@@ -74,7 +75,7 @@ public class BaseForm extends Form {
         tb.setSafeArea(false);
         
         
-        tb.addMaterialCommandToSideMenu("Users", FontImage.MATERIAL_PEOPLE, e -> new affichage().show());
+        tb.addMaterialCommandToSideMenu("Users", FontImage.MATERIAL_PEOPLE, e -> new affichageuser().show());
         tb.addMaterialCommandToSideMenu("Categories", FontImage.MATERIAL_CATEGORY, e -> new afficherCategorieForm().show());
         tb.addMaterialCommandToSideMenu("Produits", FontImage.MATERIAL_SHOPPING_BAG, e -> new ListProductsForm().show());
         //tb.addMaterialCommandToSideMenu("Panier", FontImage.MATERIAL_SHOPPING_CART, e -> new ListCartsForm().show());
@@ -85,9 +86,9 @@ public class BaseForm extends Form {
 
         tb.addMaterialCommandToSideMenu("Coaching", FontImage.MATERIAL_SPORTS, e -> new affichageSeance().show());
         tb.addMaterialCommandToSideMenu("Logout", FontImage.MATERIAL_LOGOUT, e -> {
-            //MyApplication.loggedUser = new User();
-            //Form p1 = new LoginForm();
-            //p1.show();
+            MyApplication.loggedUser = new User();
+            Form p1 = new SignInForm();
+            p1.show();
         });
         
     }
